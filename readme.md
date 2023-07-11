@@ -62,7 +62,7 @@ yolo detect predict model=./runs/detect/train2/weights/best.pt conf=0.75 source=
 yolo detect predict model=./runs/detect/train2/weights/best.pt conf=0.75 source=D:\projects\playing_cards_yolo1\data\test\images
 ```
 The result will be stored in the path runs\detect\predict:
-!(003787710_jpg.rf.fc4b9f3dd0d6f3146d70739ac741a64e.jpg)
+![result](003787710_jpg.rf.fc4b9f3dd0d6f3146d70739ac741a64e.jpg)
 7. You can also use the video model:
 ```bash
 yolo detect predict model=./runs/detect/train2/weights/best.pt conf=0.75 source=path/to/your/videos
@@ -72,7 +72,7 @@ yolo detect predict model=./runs/detect/train2/weights/best.pt conf=0.75 source=
 yolo detect predict model=./runs/detect/train2/weights/best.pt conf=0.05 source=D:\Downloads\pexels-rodnae-productions-7683854.mp4
 ```
 The result will be stored in the path runs\detect\predict or if this path already exists than model give you path where was stared your video:
-!(image.png)
+![result](image.png)
 
 ## Results
 The performance of the YOLO model can be measured using metrics like mean average precision (mAP), precision, recall, and intersection over union (IoU). These metrics provide insights into the model's accuracy and detection capabilities.
