@@ -35,11 +35,11 @@ pip install virtualenv
 ```
 3. Next create a new environment, write the following command and press Enter:
 ```bash
-virtual_env name_of_the_new_env
+virtualenv name_of_the_new_env
 ```
 ### Example
 ```bash
-virtual_env cards
+virtualenv cards
 ```
 4. Next activate the new environment, write the following command and press Enter:
 ```bash
