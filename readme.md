@@ -62,7 +62,9 @@ yolo detect predict model=./runs/detect/train2/weights/best.pt conf=0.75 source=
 yolo detect predict model=./runs/detect/train2/weights/best.pt conf=0.75 source=D:\projects\playing_cards_yolo1\data\test\images
 ```
 The result will be stored in the path runs\detect\predict:
+
 ![result](003787710_jpg.rf.fc4b9f3dd0d6f3146d70739ac741a64e.jpg)
+
 7. You can also use the video model:
 ```bash
 yolo detect predict model=./runs/detect/train2/weights/best.pt conf=0.75 source=path/to/your/videos
