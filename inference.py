@@ -9,9 +9,9 @@ import io
 
 app = Flask(__name__)
 
-model = YOLO('./runs/detect/train2/weights/best.pt')
+model = YOLO('./runs/detect/train/weights/best.pt')
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
-
+model.to(device)
 
 def visualize_detection(image, detections):
     image = np.array(image)
