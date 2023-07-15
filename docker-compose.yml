@@ -1,0 +1,20 @@
+version: "3.11.3"
+
+services:
+  streamlit-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DOCKER_MODE=1
+    ports:
+      - "8501:8501"
+    command: ["streamlit", "run", "--server.port", "8501", "ui.py"]
+    depends_on:
+      - api
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["python3", "inference.py"]
