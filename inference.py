@@ -70,25 +70,20 @@ def run_inference_video():
     if 'file' not in request.files:
         return jsonify({'error': 'No file found'})
 
-    video_dir = './temp/'
-    os.makedirs(video_dir, exist_ok=True)
-
     file = request.files['file']
-    video_path = './temp/video.mp4'
-    output_path = './temp/output.mp4'
 
     # Save the video file
-    file.save(video_path)
+    file.save(file.filename)
 
     # Open the video file
-    cap = cv2.VideoCapture(video_path)
+    cap = cv2.VideoCapture(file.filename)
     frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     fps = cap.get(cv2.CAP_PROP_FPS)
 
     # Create a video writer for the output video
-    fourcc = cv2.VideoWriter_fourcc(*'avc1')
-    out = cv2.VideoWriter(output_path, fourcc, fps, (frame_width, frame_height))
+    fourcc = cv2.VideoWriter_fourcc('V','P','8','0')
+    out = cv2.VideoWriter('output.webm', fourcc, fps, (frame_width, frame_height))
 
     while cap.isOpened():
         ret, frame = cap.read()
@@ -132,7 +127,7 @@ def run_inference_video():
     out.release()
 
     # Return the output video file
-    with open(output_path, 'rb') as f:
+    with open('output.webm', 'rb') as f:
         video_data = f.read()
 
     return video_data, 200, {'Content-Type': 'video/mp4'}

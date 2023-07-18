@@ -2,11 +2,10 @@ import streamlit as st
 import requests
 from PIL import Image
 import io
-import shutil
 
 
 def send_prediction_request_img(image):
-    url = 'http://192.168.0.108:5000/detect_images'
+    url = 'http://api:5000/detect_images'
     image_byte_arr = io.BytesIO()
     image.save(image_byte_arr, format='JPEG')
     image_byte_arr = image_byte_arr.getvalue()
@@ -38,13 +37,12 @@ def main():
                 v.empty()
                 t = st.empty()
                 t.markdown('Running...')
-                predicted = requests.post(f"http://192.168.0.108:5000/detect_videos", files={'file': uploaded_file})
+                predicted = requests.post(f"http://api:5000/detect_videos", files={'file': uploaded_file})
                 if predicted.status_code == 200:
                     output_video = predicted.content
 
                     # Display the output video in Streamlit
                     st.video(output_video)
-                    shutil.rmtree('./temp')
                 else:
                     st.error(f"Error: {predicted.status_code} - {predicted.content}")
 
