@@ -29,59 +29,18 @@ To use the trained model for Intel Image Classification, follow the instructions
 ```bash
 git clone https://github.com/loipoi3/playing_cards_yolo.git
 ```
-2. Next install virtualenv, write the following command and press Enter:
+2. Next go to folder with project and run this command:
 ```bash
-pip install virtualenv
+docker-compose up --build
 ```
-3. Next create a new environment, write the following command and press Enter:
-```bash
-virtualenv name_of_the_new_env
-```
-### Example
-```bash
-virtualenv cards
-```
-4. Next activate the new environment, write the following command and press Enter:
-```bash
-name_of_the_new_env\Scripts\activate
-```
-### Example
-```bash
-cards\Scripts\activate
-```
-5. Next, you need to install all the necessary dependencies:
-```bash
-pip install -r requirements.txt
-```
-6. That's all, now you can use the trained model in the pictures(remember you can experiment with the conf option, for my data i use conf=0.75):
-```bash
-yolo detect predict model=./runs/detect/train2/weights/best.pt conf=0.75 source=path/to/your/images
-```
-### Example
-```bash
-yolo detect predict model=./runs/detect/train2/weights/best.pt conf=0.75 source=D:\projects\playing_cards_yolo1\data\test\images
-```
-The result will be stored in the path runs\detect\predict:
-
-![result](003787710_jpg.rf.fc4b9f3dd0d6f3146d70739ac741a64e.jpg)
-
-7. You can also use the video model:
-```bash
-yolo detect predict model=./runs/detect/train2/weights/best.pt conf=0.75 source=path/to/your/videos
-```
-### Example
-```bash
-yolo detect predict model=./runs/detect/train2/weights/best.pt conf=0.05 source=D:\Downloads\pexels-rodnae-productions-7683854.mp4
-```
-The result will be stored in the path runs\detect\predict or if this path already exists than model give you path where was stared your video:
-![result](image.png)
+3. And the last thing, open this link in your browser http://localhost:8501, that's all, now you can use the detector.
 
 ## Results
 The performance of the YOLO model can be measured using metrics like mean average precision (mAP), precision, recall, and intersection over union (IoU). These metrics provide insights into the model's accuracy and detection capabilities.
 
 It is crucial to evaluate the model on a separate validation or test set to assess its generalization and ensure it performs well on unseen data.
 
-The model was trained for 20 epochs with a lerning rate of 0.01 and an SGD optimizer with a momentum of 0.9, after the last epoch the mAP50-95 metric was 0.85049, you can see more about the metrics and losses in the file ./runs/detect/train2/results.csv.
+The model was trained for 20 epochs with a lerning rate of 0.01 and an SGD optimizer with a momentum of 0.9, after the last epoch the mAP50-95 metric was 0.95101, you can see more about the metrics and losses in the file ./runs/detect/train/results.csv.
 
 ## Conclusion
 In this project, we trained a custom YOLO model for playing card detection. By following the steps outlined above, you can create your own playing card detection system using YOLO. Remember to use a diverse and representative dataset, appropriately configure the model, and evaluate its performance to achieve accurate and reliable results.
