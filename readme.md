@@ -16,7 +16,10 @@ The YOLOv8 architecture consists of a backbone network (such as Darknet-53) for 
 
 2. Model Configuration: Configure the YOLO model architecture and adjust hyperparameters based on your specific requirements. This includes setting the number of classes, anchor box sizes, training batch size, learning rate, and other related parameters.
 
-3. Training Process: Train the YOLO model on your labeled dataset. During training, the model learns to predict bounding box coordinates and class probabilities. The training process typically involves optimizing a loss function that combines localization loss and classification loss.
+3. Training Process: Train the YOLO model on your labeled dataset. During training, the model learns to predict bounding box coordinates and class probabilities. The training process typically involves optimizing a loss function that combines localization loss and classification loss. For training model i used this command:
+```bash
+!yolo detect train data=/kaggle/input/playing-cards-object-detection-dataset/kaggle_data.yaml model=yolov8n.pt epochs=120 imgsz=416 batch=16 flipud=0.0 fliplr=0.0
+```
 
 4. Model Evaluation: Evaluate the trained model's performance using appropriate metrics such as mean average precision (mAP) and intersection over union (IoU). These metrics help assess the model's ability to detect playing cards accurately.
 
