@@ -26,7 +26,7 @@ yolo detect train data=./data.yaml model=yolov8n.pt epochs=120 imgsz=416 batch=1
 5. Inference: Once the model is trained and evaluated, you can use it for inference on new images. The trained YOLO model can detect playing cards in real-time, providing bounding box predictions and associated class probabilities.
 
 ## Usage
-To use the trained model for Intel Image Classification, follow the instructions below:
+To use the trained model for Playing Cards Detection, follow the instructions below:
 
 1. First clone the repository. To do this, open a terminal, go to the directory where you want to clone the project and then enter the command:
 ```bash
